@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>sendToken</title>
+    <title>sendCode</title>
 
     <script type="text/javascript">
         function subToken()
@@ -15,7 +15,7 @@
 <body onload="subToken()">
 <form id="form1" th:action="${redirectUrl}"  method="post">
     <label>
-        <input name="token" type="hidden" th:value="${token}">
+        <input name="code" type="hidden" th:value="${code}">
     </label>
 </form>
 </body>

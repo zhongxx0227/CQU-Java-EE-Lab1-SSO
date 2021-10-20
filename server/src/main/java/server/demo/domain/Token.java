@@ -2,10 +2,14 @@ package server.demo.domain;
 
 import static server.demo.domain.User.userMap;
 
-public class token {
+public class Token {
     public static String createToken(String username)
     {
-        return "username";
+        String date = String.valueOf(System.currentTimeMillis());
+        String token = date+username;
+        User temp = userMap.get(username);
+        temp.setToken(token);
+        return security.encrypt(token);
     }
     public static msg checkToken(String username,String token)
     {
