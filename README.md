@@ -1,8 +1,6 @@
 # CQU-Java-EE-Lab1-SSO
 重庆大学 2021-2022 Java 企业级应用 实验一 单点登录系统
 
-参考 https://github.com/zhongxx0227/smart-sso.git
+**2021年10月21日00:51:40**
 
-wzy666
-
-zsq
+将SSO系统分为几个互相独立的子系统，加强可扩展性。
