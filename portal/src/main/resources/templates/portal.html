@@ -1,15 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>SSO中转系统</title>
 </head>
 <body>
-<p>
-    <a href="http://localhost:8081/loginA">系统A</a>
-</p>
-<p>
-    <a href="http://localhost:8081/loginB">系统B</a>
-</p>
+<form id="form1" action="http://localhost:8080/loginByToken" method="post">
+    <label>
+        <input name="sourceDict" type="hidden" value="sys-A">
+    </label>
+    <button name="sysA" type="submit">
+        系统A
+    </button>
+</form>
+<form id="form2" action="http://localhost:8080/loginBytoken" method="post">
+    <label>
+        <input name="sourceDict" type="hidden" value="sys-B">
+    </label>
+    <button name="sysB" type="submit">
+        系统B
+    </button>
+</form>
+
+<!--<p>-->
+<!--    <a href="http://localhost:8081/loginA">系统A</a>-->
+<!--</p>-->
+<!--<p>-->
+<!--    <a href="http://localhost:8081/loginB">系统B</a>-->
+<!--</p>-->
 </body>
 </html>
