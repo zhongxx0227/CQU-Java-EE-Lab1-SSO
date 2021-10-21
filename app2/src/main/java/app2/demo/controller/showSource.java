@@ -1,4 +1,4 @@
-package app1.demo.controller;
+package app2.demo.controller;
 
 
 /**@author 钟祥新
@@ -34,17 +34,17 @@ public class showSource {
                 cookie.setMaxAge(3600*24*30);
                 response.addCookie(cookie);
             }
-            String height = request.getParameter("source");
+            String weight = request.getParameter("source");
             System.out.println("app1 showSource username: "+username);
-            System.out.println("app1 showSource source: "+height);
-            model.addAttribute("source",height);
+            System.out.println("app1 showSource source: "+weight);
+            model.addAttribute("source",weight);
             model.addAttribute("username",username);
             return "showSource";
         }
         // token验证失败，转而通过oauth2认证服务器申请认证码code
         else
         {
-            return "redirect:http://localhost:8080/loginByPwd?redirectUrl=http://localhost:8081/getCode";
+            return "redirect:http://localhost:8080/loginByPwd?redirectUrl=http://localhost:8082/getCode";
         }
     }
 }

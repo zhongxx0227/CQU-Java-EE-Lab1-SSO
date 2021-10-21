@@ -1,4 +1,4 @@
-package app1.demo.controller;
+package app2.demo.controller;
 
 
 /**@author 钟祥新
@@ -20,7 +20,7 @@ public class getCode {
         System.out.println("app1 getCode username: "+username);
         String code = request.getParameter("code");
         System.out.println("app1 getCode:"+code);
-        String redirectUrl = "http://localhost:8081/getToken";
+        String redirectUrl = "http://localhost:8082/getToken";
         model.addAttribute("username",username);
 
         model.addAttribute("code",code);

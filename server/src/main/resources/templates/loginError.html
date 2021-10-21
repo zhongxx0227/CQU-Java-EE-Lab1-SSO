@@ -5,11 +5,16 @@
     <title>title</title>
 </head>
 <body>
-登录失败！
+<h1>登录失败！</h1>
 <h1 th:value="${exceptionMsg}"></h1>
-<a href="http://localhost:8081/loginByToken">
-    <button>好的</button>
-</a>
+<form name="form1" action="http://localhost:8080/loginPwd" method="post">
+    <label>
+        <input name="redirectUrl" type="hidden" th:value="${redirectUrl}">
+    </label>
+    <button type="submit">
+        好的
+    </button>
+</form>
 </body>
 </html>
 

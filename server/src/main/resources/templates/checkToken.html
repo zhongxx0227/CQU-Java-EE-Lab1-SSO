@@ -2,26 +2,29 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>sendToken</title>
+    <title>sendSource</title>
 
     <script type="text/javascript">
-        function subToken()
+        function checkToken()
         {
             console.log("执行！")
             setTimeout("document.getElementById('form1').submit()",100);
         }
     </script>
 </head>
-<body onload="subToken()">
-<form id="form1" action="http://localhost:8080/getToken" method="post">
+<body onload="checkToken()">
+<form id="form1" action="http://localhost:8080/loginByToken"  method="post">
     <label>
-        <input name="token" type="hidden" th:value="${token}">
+        <input name="redirectUrl" type="hidden" th:value="${redirectUrl}">
     </label>
     <label>
         <input name="username" type="hidden" th:value="${username}">
     </label>
     <label>
-        <input name="redirectUrl" type="hidden" th:value="${redirectUrl}">
+        <input name="sourceRedirectUrl" type="hidden" th:value="${sourceRedirectUrl}">
+    </label>
+    <label>
+        <input name="token" type="hidden" th:value="${token}">
     </label>
     <label>
         <input name="sourceType" type="hidden" th:value="${sourceType}">

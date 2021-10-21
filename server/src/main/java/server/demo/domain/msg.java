@@ -1,5 +1,9 @@
 package server.demo.domain;
 
+/**@author 王梓宇
+ * @time 2021.10.18
+ * 定义 消息体
+ */
 public class msg {
     public int code;
     public String m;

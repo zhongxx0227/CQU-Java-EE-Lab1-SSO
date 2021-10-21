@@ -1,4 +1,4 @@
-package app1.demo.controller;
+package app2.demo.controller;
 
 
 /**@author 钟祥新
@@ -22,8 +22,8 @@ public class getToken {
         System.out.println("app1 getToken username: "+username);
         String token = request.getParameter("token");
         System.out.println("app1 getToken token:"+token);
-        String redirectUrl = "http://localhost:8081/showSource";
-        String sourceType = "height";
+        String redirectUrl = "http://localhost:8082/showSource";
+        String sourceType = "weight";
         Cookie cookie =new Cookie("SSO"+username,token);
         //把token存在本地，并设置cookie一个月后过期
         cookie.setMaxAge(3600*24*30);

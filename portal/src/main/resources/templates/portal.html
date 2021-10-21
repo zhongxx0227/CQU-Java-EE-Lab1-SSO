@@ -5,18 +5,12 @@
     <title>SSO中转系统</title>
 </head>
 <body>
-<form id="form1" action="http://localhost:8080/loginByToken" method="post">
-    <label>
-        <input name="sourceDict" type="hidden" value="sys-A">
-    </label>
+<form id="form1" action="http://localhost:8081/app1" method="get">
     <button name="sysA" type="submit">
         系统A
     </button>
 </form>
-<form id="form2" action="http://localhost:8080/loginBytoken" method="post">
-    <label>
-        <input name="sourceDict" type="hidden" value="sys-B">
-    </label>
+<form id="form2" action="http://localhost:8082/app2" method="get">
     <button name="sysB" type="submit">
         系统B
     </button>

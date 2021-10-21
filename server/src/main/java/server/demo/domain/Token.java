@@ -1,7 +1,10 @@
 package server.demo.domain;
 
 import static server.demo.domain.User.userMap;
-
+/**@author 王梓宇
+ * @time 2021.10.18
+ * 用于处理token相关内容的工具类
+ */
 public class Token {
     public static String createToken(String username)
     {
@@ -9,7 +12,7 @@ public class Token {
         String token = date+username;
         User temp = userMap.get(username);
         temp.setToken(token);
-        return security.encrypt(token);
+        return token;
     }
     public static msg checkToken(String username,String token)
     {

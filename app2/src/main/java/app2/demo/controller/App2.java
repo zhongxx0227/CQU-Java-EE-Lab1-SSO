@@ -1,4 +1,4 @@
-package app1.demo.controller;
+package app2.demo.controller;
 
 /**@author 钟祥新
  * @time 2021.10.18
@@ -12,13 +12,13 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
 @Controller
-public class App1 {
-    @RequestMapping(value = "app1")
+public class App2 {
+    @RequestMapping(value = "app2")
     public String app1(HttpServletRequest request, Model model)
     {
         String username = "";
         String token ="";
-        String redirectUrl = "http://localhost:8081/showSource";
+        String redirectUrl = "http://localhost:8082/showSource";
         //如果有token则直接发送token获取资源
         Cookie[] cookies = request.getCookies();
         if (cookies != null) {
@@ -31,13 +31,12 @@ public class App1 {
                     model.addAttribute("username",username);
                     model.addAttribute("token",token);
                     model.addAttribute("redirectUrl",redirectUrl);
-                    model.addAttribute("sourceType","height");
+                    model.addAttribute("sourceType","weight");
                     return "sendToken";
-                    // 获取验证token的消息体
                 }
             }
         }
         // 如果没有token则通过oauth服务器申请认证码
-        return "redirect:http://localhost:8080/loginByPwd?redirectUrl=http://localhost:8081/getCode";
+        return "redirect:http://localhost:8080/loginByPwd?redirectUrl=http://localhost:8082/getCode";
     }
 }

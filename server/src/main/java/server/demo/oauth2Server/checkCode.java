@@ -1,11 +1,15 @@
-package server.demo.controller;
+package server.demo.oauth2Server;
 
+
+/**@author 王梓宇
+ * @time 2021.10.19
+ * 检查app端发来的认证码code
+ */
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import server.demo.domain.Token;
 import server.demo.domain.User;
-import server.demo.domain.User.*;
 import server.demo.domain.security;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,15 +19,17 @@ public class checkCode {
     @PostMapping(value = "checkCode")
     public String chekCode(HttpServletRequest request, Model model)
     {
-
+        //code解密
         String code = security.decrypt(request.getParameter("code"));
         String redirectUrl = request.getParameter("redirectUrl");
         String username = request.getParameter("username");
+        System.out.println("checkCode username: "+username);
         String checkUsername = User.userMap.get(username).getUsername();
+        System.out.println(checkUsername);
         if(code.equals(checkUsername))
         {
             String token = Token.createToken(username);
-            model.addAttribute("token",token);
+            model.addAttribute("token",security.encrypt(token));
             model.addAttribute("redirectUrl",redirectUrl);
             model.addAttribute("username",username);
             return "sendToken";

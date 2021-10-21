@@ -1,14 +1,18 @@
-package server.demo.controller;
+package server.demo.oauth2Server;
+
+
+/**@author 王梓宇
+ * @time 2021.10.19
+ * 密码登录逻辑处理
+ */
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
-import server.demo.domain.Token;
 import server.demo.domain.User;
 import server.demo.domain.msg;
 import server.demo.domain.security;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -36,6 +40,7 @@ public class loginPwd {
 //            model.addAttribute("username",username);
 //            return "getSource";
         }
+        model.addAttribute("redirectUrl",redirectUrl);
         model.addAttribute("exceptionMsg",ans.m);
         return "loginError";
     }
