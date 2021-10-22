@@ -1,5 +1,10 @@
 package app1.demo.controller;
 
+
+/**@author 钟祥新
+ * @time 2021.10.18
+ * 用户处理oauth2认证服务器发过来的token
+ */
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,11 +19,13 @@ public class getToken {
     public String getToken(HttpServletRequest request, HttpServletResponse response, Model model)
     {
         String username = request.getParameter("username");
+        System.out.println("app1 getToken username: "+username);
         String token = request.getParameter("token");
+        System.out.println("app1 getToken token:"+token);
         String redirectUrl = "http://localhost:8081/showSource";
         String sourceType = "height";
         Cookie cookie =new Cookie("SSO"+username,token);
-        //设置cookie一个月后过期
+        //把token存在本地，并设置cookie一个月后过期
         cookie.setMaxAge(3600*24*30);
         response.addCookie(cookie);
         model.addAttribute("username",username);

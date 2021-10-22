@@ -1,5 +1,10 @@
 package app1.demo.controller;
 
+
+/**@author 钟祥新
+ * @time 2021.10.18
+ * 用于展示资源服务器发过来的资源
+ */
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,18 +18,33 @@ public class showSource {
     @PostMapping(value = "showSource")
     public String showSource(HttpServletRequest request, HttpServletResponse response, Model model)
     {
-        String newToken = request.getParameter("newToken");
-        String username = request.getParameter("username");
-        if(!newToken.equals("-1"))
+        System.out.println("进入app1 showSource!");
+        String msg = request.getParameter("msg");
+        System.out.println("app1 showSource msg: "+msg);
+        // 如果资源服务器验证token成功则表面资源已发回，显示资源。
+        if(msg.equals("true"))
         {
-            Cookie cookie =new Cookie("SSO"+username,newToken);
-            //设置cookie一个月后过期
-            cookie.setMaxAge(3600*24*30);
-            response.addCookie(cookie);
+            String newToken = request.getParameter("newToken");
+            String username = request.getParameter("username");
+            System.out.println("app1 showSource newToken: "+newToken);
+            if(!newToken.equals("-1"))
+            {
+                Cookie cookie =new Cookie("SSO"+username,newToken);
+                //设置cookie一个月后过期
+                cookie.setMaxAge(3600*24*30);
+                response.addCookie(cookie);
+            }
+            String height = request.getParameter("source");
+            System.out.println("app1 showSource username: "+username);
+            System.out.println("app1 showSource source: "+height);
+            model.addAttribute("source",height);
+            model.addAttribute("username",username);
+            return "showSource";
         }
-        String height = request.getParameter("sourceType");
-        model.addAttribute("source",height);
-        model.addAttribute("username",username);
-        return "showSource";
+        // token验证失败，转而通过oauth2认证服务器申请认证码code
+        else
+        {
+            return "redirect:http://localhost:8080/loginByPwd?redirectUrl=http://localhost:8081/getCode";
+        }
     }
 }

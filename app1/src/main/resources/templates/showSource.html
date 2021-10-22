@@ -5,10 +5,21 @@
     <title>身高管理系统</title>
 </head>
 <body>
-<h1 th:value="您好,${username}">
+<h1 th:utext="${username}">
 </h1>
-<p th:value="您的身高是${source}">
+<h1>您好</h1>
+<p>您的身高是</p>
+<p th:utext="${source}">
 
 </p>
+<a href="http://localhost:8888/portal">
+    <button>返回主界面</button>
+</a>
+<form name="form2" action="http://localhost:8080/logout" method="post">
+    <label>
+        <input name="username" type="hidden" th:value="${username}">
+    </label>
+    <button type="submit">退出登录</button>
+</form>
 </body>
 </html>

@@ -1,5 +1,10 @@
 package app1.demo.controller;
 
+
+/**@author 钟祥新
+ * @time 2021.10.18
+ * 用户处理oauth2认证服务器发过来的认证码
+ */
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,9 +17,12 @@ public class getCode {
     public String getCode(HttpServletRequest request, Model model)
     {
         String username = request.getParameter("username");
+        System.out.println("app1 getCode username: "+username);
         String code = request.getParameter("code");
+        System.out.println("app1 getCode:"+code);
         String redirectUrl = "http://localhost:8081/getToken";
         model.addAttribute("username",username);
+
         model.addAttribute("code",code);
         model.addAttribute("redirectUrl",redirectUrl);
         return "sendCode";
