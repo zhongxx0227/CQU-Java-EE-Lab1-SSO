@@ -3,6 +3,7 @@
 
 参考 https://github.com/zhongxx0227/smart-sso.git
 
-wzy666
+后端由王梓宇，钟祥新开发
+前端由张诗琦开发
 
-zsq
+最终版本时间2021年10月23日
