@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+</head>
+<body>
+<h1>登录失败！</h1>
+<h1 th:value="${exceptionMsg}"></h1>
+<form name="form1" action="http://localhost:8080/loginPwd" method="post">
+    <label>
+        <input name="redirectUrl" type="hidden" th:value="${redirectUrl}">
+    </label>
+    <button type="submit">
+        好的
+    </button>
+</form>
+</body>
+</html>
+

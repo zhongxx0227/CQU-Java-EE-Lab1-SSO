@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>sendToken</title>
+
+    <script type="text/javascript">
+        function subToken()
+        {
+            console.log("执行！")
+            setTimeout("document.getElementById('form1').submit()",100);
+        }
+    </script>
+</head>
+<body onload="subToken()">
+<form id="form1" action="http://localhost:8080/getToken" method="post">
+    <label>
+        <input name="token" type="hidden" th:value="${token}">
+    </label>
+    <label>
+        <input name="username" type="hidden" th:value="${username}">
+    </label>
+    <label>
+        <input name="redirectUrl" type="hidden" th:value="${redirectUrl}">
+    </label>
+    <label>
+        <input name="sourceType" type="hidden" th:value="${sourceType}">
+    </label>
+</form>
+</body>
+</html>
