@@ -1,6 +1,6 @@
 # CQU-Java-EE-Lab1-SSO
-重庆大学 2021-2022 Java 企业级应用 实验一 单点登录系统
 
-**2021年10月21日00:51:40**
+Java Enterprise Application — Lab 1: Single Sign-On (SSO) System
 
-将SSO系统分为几个互相独立的子系统，加强可扩展性。
+Date: October 21, 2021
+Designed and implemented an SSO system by dividing it into multiple independent subsystems to improve scalability.
